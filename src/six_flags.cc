@@ -32,7 +32,7 @@ inline void GetAttractionsInfo(std::vector<Attraction>& attractions) {
   }
 }
 
-// Sorts the vector of attractions in non-increasing order by rating per
+// Sorts the vector of attractions in non-increasing order by score per
 // minute.
 inline void SortAttractions(std::vector<Attraction>& attractions) {
   std::sort(attractions.begin(), attractions.end(),
