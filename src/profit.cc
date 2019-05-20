@@ -16,13 +16,13 @@
 #include <iostream>
 #include <vector>
 
-// Updates the elements of the vector v, from v[0] to v[n-1], adding to the 
-// value of each of them the integer provided by the standard input.
-inline void UpdateVector(std::vector<int>& v) {
+// Sets each element of the vector v to initial_value + value, where value is 
+// an integer provided by the standard input.
+inline void FillVector(std::vector<int>& v, int initial_value) {
   int value;
   for (auto& x : v) {
     std::cin >> value;
-    x += value;
+    x = initial_value + value;
   }
 }
 
@@ -48,10 +48,11 @@ int MaxSubvector(const std::vector<int>& v) {
 int main(void) {
   int num_days;
   int cost_per_day;
+  std::vector<int> profit_per_day;
   while (std::cin >> num_days) {
+    profit_per_day.resize(num_days);
     std::cin >> cost_per_day;
-    std::vector<int> profit_per_day(num_days, (-1) * cost_per_day);
-    UpdateVector(profit_per_day);
+    FillVector(profit_per_day, (-1) * cost_per_day);
     std::cout << MaxSubvector(profit_per_day) << std::endl;
   }
 }
