@@ -29,7 +29,7 @@ inline void FillVector(std::vector<int>& v, int initial_value) {
 // Given a vector v[0..(n-1)] of integers (not necessarily positive), this 
 // function returns the sum of the elements in a subvector v[i..j] that is 
 // maximum over all subvectors of v.
-int MaxSubvector(const std::vector<int>& v) {
+int MaxSubvectorSum(const std::vector<int>& v) {
   int global_max = 0;
   int suffix_max = 0;
   for (const auto& x : v) {
@@ -53,6 +53,6 @@ int main(void) {
     profit_per_day.resize(num_days);
     std::cin >> cost_per_day;
     FillVector(profit_per_day, (-1) * cost_per_day);
-    std::cout << MaxSubvector(profit_per_day) << std::endl;
+    std::cout << MaxSubvectorSum(profit_per_day) << std::endl;
   }
 }
