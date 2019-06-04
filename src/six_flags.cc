@@ -7,7 +7,7 @@
  *   Graduate Program in Computer Science
  *   Design and Analysis of Algorithms
  *
- *   Solution for Six Flags problem usign a greedy algorithm.
+ *   Solution for Six Flags problem using dynamic programming.
  *   Problem statement:
  *   https://www.urionlinejudge.com.br/judge/pt/problems/view/1487
  *
@@ -17,9 +17,9 @@
 #include <iostream>
 #include <vector>
 
-// Represents an attraction of the park
+// Represents an attraction of the park.
 struct Attraction {
-  int duration;  // in minutes
+  int duration;  // in minutes.
   int score;
 };
 
@@ -32,32 +32,21 @@ inline void GetAttractionsInfo(std::vector<Attraction>& attractions) {
   }
 }
 
-// Sorts the vector of attractions in non-increasing order by score per
-// minute.
-inline void SortAttractions(std::vector<Attraction>& attractions) {
-  std::sort(attractions.begin(), attractions.end(),
-            [](Attraction& a, Attraction& b) {
-              return (a.score * b.duration) > (b.score * a.duration);
-            });
-}
-
 // Returns the highest possible score for a collection of attractions that
 // respects the available time provided. An attraction may appear more than
 // once in a collection.
 int SelectAttractions(std::vector<Attraction>& attractions,
                       int available_time) {
-  int total_score = 0;
-  int times;
+  std::vector<int> scores(available_time + 1, 0);
 
-  SortAttractions(attractions);
-  for (auto& a : attractions) {
-    if (available_time == 0) break;
-    if ((times = available_time / a.duration) > 0) {
-      total_score += a.score * times;
-      available_time -= a.duration * times;
+  for (int t = 1; t <= available_time; t++) {
+    for (auto& a : attractions) {
+      if (a.duration <= t) {
+        scores[t] = std::max(scores[t], a.score + scores[t - a.duration]);
+      }
     }
   }
-  return total_score;
+  return scores[available_time];
 }
 
 int main(void) {
@@ -65,9 +54,9 @@ int main(void) {
   int available_time;
   std::vector<Attraction> attractions;
   int instance = 1;
-  
+
   while (std::cin >> num_attractions && num_attractions > 0) {
-    attractions.reserve(num_attractions);
+    attractions.resize(num_attractions);
     std::cin >> available_time;
     GetAttractionsInfo(attractions);
     std::cout << "Instancia " << instance++ << std::endl;
