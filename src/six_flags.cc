@@ -65,9 +65,9 @@ int main(void) {
   int available_time;
   std::vector<Attraction> attractions;
   int instance = 1;
-
+  
   while (std::cin >> num_attractions && num_attractions > 0) {
-    attractions.resize(num_attractions);
+    attractions.reserve(num_attractions);
     std::cin >> available_time;
     GetAttractionsInfo(attractions);
     std::cout << "Instancia " << instance++ << std::endl;
