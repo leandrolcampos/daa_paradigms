@@ -63,4 +63,5 @@ int main(void) {
     std::cout << SelectAttractions(attractions, available_time) << std::endl;
     std::cout << std::endl;
   }
+  return 0;
 }

@@ -55,4 +55,5 @@ int main(void) {
     FillVector(profit_per_day, (-1) * cost_per_day);
     std::cout << MaxSubvectorSum(profit_per_day) << std::endl;
   }
+  return 0;
 }
