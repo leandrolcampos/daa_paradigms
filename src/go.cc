@@ -17,14 +17,14 @@
 #include <iostream>
 #include <vector>
 
-// Board is an type alias for a 3D vector of integers. Its first, second and 
-// third dimensions represent, respectively, a player, a row and a column. The
-// element board[p1][i][j] is equal to 1 if there is a stone of the player p1
-// in the i, j position of the board or if this position is empty; or it is 
+// Board is a type alias for a 3D vector of integers. The first, the second and
+// the third dimension represents, respectively, a player, a row and a column.
+// A element board[p1][i][j] is equal to 1 if there is a stone of the player p1
+// in the (i, j) position of the board or if this position is empty; or it is
 // equal to 0 if there is a stone of the other player in this position.
 using Board = std::vector<std::vector<std::vector<int>>>;
 
-constexpr int kNumPlayers = 2; // Do not change the value of this constant.
+constexpr int kNumPlayers = 2;  // Do not change the value of this constant.
 
 void InitializeBoard(Board &board, int num_rows) {
   int num_cols = num_rows;
@@ -48,8 +48,8 @@ void PlaceStones(Board &board, int num_stones_per_player) {
     rival = 1 - player;
     for (int stone = 0; stone < num_stones_per_player; stone++) {
       std::cin >> row >> col;
-      row--; // From 1-based index to 0-based index.
-      col--; // From 1-based index to 0-based index.
+      row--;  // From 1-based index to 0-based index.
+      col--;  // From 1-based index to 0-based index.
       board[rival][row][col] = 0;
     }
   }
