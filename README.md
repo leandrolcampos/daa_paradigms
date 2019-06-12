@@ -1,4 +1,4 @@
-# Algorithmic Paradigms
+# Algorithm Design Paradigms
 
 This repository contains my solutions to [Problem Set 3](https://github.com/leandrolcampos/daa_paradigms/blob/master/doc/problems.pdf) of the course "Design and Analysis of Algorithms", offered by the Graduate Program in Computer Science of the Federal University of Minas Gerais (UFMG). This problem set had as goal the practice of the algorithm design paradigms seen in the classroom and it consisted of five problems available on [URI Online Judge](https://www.urionlinejudge.com.br), among which I should choose and solve at least four.
 
