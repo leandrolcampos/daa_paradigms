@@ -18,9 +18,9 @@
 #include <vector>
 
 // Board is a type alias for a 3D vector of integers. The first, the second and
-// the third dimension represents, respectively, a player, a row and a column.
-// A element board[p1][i][j] is equal to 1 if there is a stone of the player p1
-// in the (i, j) position of the board or if this position is empty; or it is
+// the third dimensions represent, respectively, a player, a row and a column.
+// An element board[p1][i][j] is equal to 1 if there is a stone of the player p1
+// in the (i, j) position on the board or if this position is empty; or it is
 // equal to 0 if there is a stone of the other player in this position.
 using Board = std::vector<std::vector<std::vector<int>>>;
 
